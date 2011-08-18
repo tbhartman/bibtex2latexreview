@@ -117,7 +117,8 @@ def eolsub(match):
     match = re.sub('\n',' ',match)
     return match
 
-for key in entry:
+alpha_keys = sorted(entry.keys())
+for key in alpha_keys:
     ref = entry[key]
     if 'review' in ref and ref['review'] is not None:
         output.write('% review for {:s}\n'.format(key))
@@ -132,7 +133,6 @@ for key in entry:
             # condense good eols
             review = re.sub('\n\n','\n',review)
         #import pdb; pdb.set_trace()
-
         output.write('\n\n{{\\large\n{:s}\n}}\n\\clearpage\n\n'.format(review))
 
 output.write('%bibliography\n\\bibliography{\\finkbase}\n\\end{document}')
