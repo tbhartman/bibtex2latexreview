@@ -68,7 +68,7 @@ entry = {}
 regex = {}
 regex['type'] = re.compile('^[a-zA-Z]*{')
 regex['key'] = re.compile('^{[a-zA-Z0-9\-_+=()\[\] ]*,')
-regex['entry_name'] = re.compile('^[a-zA-Z]* = {')
+regex['entry_name'] = re.compile('^[_\-a-zA-Z0-9]* = {')
 for i in bib_split:
     i.strip()
     search_for_type = regex['type'].search(i)
